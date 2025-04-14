@@ -1,1 +1,1 @@
-# convert-lammps-out-to-xlsx-filter
+# convert-lammps-out-to-xlsx

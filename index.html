@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMMPS out file to XLSX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="dist/xlsx-bundle.js"></script> <!-- Use local bundled XLSX -->
+    <script defer src="script.js"></script>
+    <script defer src="search.js"></script> <!-- New script added -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .file-input {
+            margin: 20px;
+        }
+        .header-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        .btn {
+            margin: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            color: white;
+        }
+        .btn-select { background: green; }
+        .btn-unselect { background: red; }
+        .btn-download { background: blue; }
+    </style>
+</head>
+<body>
+
+    <h2>LAMMPS out file to XLSX</h2>
+
+    <input type="file" id="fileInput" class="file-input" accept=".out">
+    <div id="headerSelection" class="header-list"></div>
+    
+    <div class="controls">
+        <button class="btn btn-select" onclick="selectAll()">Select All Headers</button>
+        <button class="btn btn-unselect" onclick="unselectAll()">Unselect All Headers</button>
+        <button class="btn btn-download" onclick="downloadXLSX()" disabled id="downloadBtn">Download XLSX</button>
+    </div>
+    <div id="excludedWarning" style="margin-top: 15px; color: #b04100; font-size: 14px;"></div>
+
+</body>
+</html>
