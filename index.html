@@ -52,6 +52,11 @@
     <div class="controls">
         <button class="btn btn-select" onclick="selectAll()">Select All Headers</button>
         <button class="btn btn-unselect" onclick="unselectAll()">Unselect All Headers</button>
+        <div style="margin-top: 10px;">
+            <label for="minMoleculeSum"><strong>Minimum Molecule Total:</strong></label>
+            <input type="number" id="minMoleculeSum" value="3" min="0" style="width: 60px; margin-left: 10px;" />
+        </div>
+        
         <button class="btn btn-download" onclick="downloadXLSX()" disabled id="downloadBtn">Download XLSX</button>
     </div>
     <div id="excludedWarning" style="margin-top: 15px; color: #b04100; font-size: 14px;"></div>
