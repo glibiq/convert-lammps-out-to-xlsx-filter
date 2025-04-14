@@ -110,8 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
             includedHeaders.forEach(header => {
                 const idx = rowHeaders.indexOf(header);
-                rowData[header] = idx >= 0 && idx < values.length ? values[idx] : "0";
+                const raw = idx >= 0 && idx < values.length ? values[idx] : "0";
+                const num = parseFloat(raw);
+                rowData[header] = isNaN(num) ? raw : num;
             });
+            
     
             return rowData;
         });
